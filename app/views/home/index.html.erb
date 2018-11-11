@@ -1,0 +1,37 @@
+<h1>메인화면</h1>
+
+<% if user_signed_in? %>
+    <li><a href = "/users/sign_out" data-method = "delete">로그아웃 </a></li>
+    <p><%= current_user.email %>님 환영합니다.</p>
+<% else %>
+    <li><a href = "/users/sign_up">회원가입 </a></li>
+    <li><a href = "/users/sign_in">로그인 </a></li>
+<% end %>
+
+<h2>유저들</h2>
+<% @all_users.each do |u| %>
+    <p><%= u.email %></p>
+    <hr>
+<% end %>
+
+<h2>아이템들</h2>
+<% @all_items.each do |i| %>
+    <p>아이템 이름 : <a href = "/home/buy_form/<%= i.id %>"><%= i.name %></a> 가격 : <%= i.price %></p>
+    <hr>
+<% end %>
+
+<h2>구매목록들</h2>
+<% @all_buy_lists.each do |l| %>
+    <p>구매한 사람 : <%= l.user.email %></p>
+    <p>아이템 이름 : <%= l.item.name %> 가격 : <%= l.item.price %></p>
+    <hr>
+<% end %>
+
+
+<% if user_signed_in? %>
+    <h2>내가 산 구매목록들</h2>
+    <% @c_items.each do |c| %>
+        <p>아이템 이름 : <%= c.name %> 가격 : <%= c.price %></p>
+        <hr>
+    <% end %>
+<% end %>

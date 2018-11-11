@@ -1,0 +1,15 @@
+
+<form action = "/home/buy">
+    <div class="form-group">
+        <input type="hidden" class="form-control" id="item" name = "item_id"  aria-describedby="emailHelp" value = <%= @item.id %>>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">구매할 품목</label>
+        <input type="text" class="form-control" id="item" name = "item"  aria-describedby="emailHelp" value = <%= @item.name%>>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">가격</label>
+        <input type="text" class="form-control" id= "price" name = "price" value = <%= @item.price%> >
+    </div>
+    <button type="submit" class="btn btn-primary">구매</button>
+</form>
