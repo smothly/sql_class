@@ -23,7 +23,7 @@
 <h2>구매목록들</h2>
 <% @all_buy_lists.each do |l| %>
     <p>구매한 사람 : <%= l.user.email %></p>
-    <p>아이템 이름 : <%= l.item.name %> 가격 : <%= l.item.price %></p>
+    <p>아이템 이름 : <%= l.item.name %> 가격 : <%= l.item.price %> <a href = "/home/delete/<%= l.id %>">[주문 취소]</a></p>
     <hr>
 <% end %>
 

@@ -13,14 +13,18 @@ class HomeController < ApplicationController
   end
 
   def buy
-    @buy_list = BuyList.new
-    @buy_list.user = current_user
-    @buy_list.item = Item.find(params[:item_id])
-    @buy_list.save
+    buy_list = BuyList.new
+    buy_list.user = current_user
+    buy_list.item = Item.find(params[:item_id])
+    buy_list.save
     
     redirect_to '/'
   end
 
   def delete
+    list = BuyList.find(params[:id])
+    list.destroy
+    
+    redirect_to '/'
   end
 end
